@@ -32,7 +32,6 @@ class _ProductDetailViewState extends State<ProductDetailView> {
       body: ChangeNotifierProvider<HomeViewModel>(
         create: (context) => homeViewModel,
         child: Consumer<HomeViewModel>(builder: (context, value, child) {
-          var data = value.productList.data![widget.index];
           switch (value.productList.status) {
             case Status.ERROR:
               return Center(
@@ -41,6 +40,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
             case Status.LOADING:
               return Utils.shimmerEffect(context);
             case Status.COMPLETED:
+              var data = value.productList.data![widget.index];
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

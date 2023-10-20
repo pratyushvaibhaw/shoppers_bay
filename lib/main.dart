@@ -15,11 +15,11 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [ChangeNotifierProvider(create: (_) => AuthViewModel())],
       child: MaterialApp(
-        
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
             colorScheme: ColorScheme.light(
-              primary: AppColor.themeColor3,
-            )),
+          primary: AppColor.themeColor3,
+        )),
         onGenerateRoute: Routes().generateRoute,
         initialRoute: RoutesName.splashview,
       ),
